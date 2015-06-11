@@ -16,6 +16,8 @@
     <% end %>
   </div>
   <div class="large-4 columns">
+  <% if policy(Topic.new).create? %>
       <%= link_to "New Topic", new_topic_path, class: 'button secondary' %>
+  <% end %>
   </div>
 </div>

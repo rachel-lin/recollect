@@ -1,9 +1,13 @@
  <h1><%= @topic.name %></h1>
  
 
-   <%= link_to "Edit Topic", edit_topic_path, class: 'button secondary' %> 
-   <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'button secondary' %>
+    <% if policy(@topic).update? %>
+    <%= link_to "Edit Topic", edit_topic_path, class: 'button secondary' %> 
+    <% end %>
 
+   <% if policy(Bookmark.new).create? %>
+   <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'button secondary' %>
+   <% end %>
  
  <div class="row">
    <div class="col-md-8">

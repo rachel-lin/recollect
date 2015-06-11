@@ -1,7 +1,8 @@
  <h1><%= @topic.name %></h1>
  
-
+   <% if policy(@bookmark).update? %>
    <%= link_to "Edit Bookmark", edit_topic_bookmark_path, class: 'btn btn-success' %>
+   <% end %>
  
  <p><%= @bookmark.name %> | <%= @bookmark.url %></p>
 

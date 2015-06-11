@@ -19,11 +19,13 @@ class ApplicationPolicy
   end
 
   def new?
+    # Just calls on create since they are related actions
+    # Keep things dry
     create?
   end
 
   def update?
-    user.present? && (record.user == user)
+    user.present? && (record.user == user || user.admin?)
   end
 
   def edit?
@@ -31,11 +33,11 @@ class ApplicationPolicy
   end
 
   def destroy?
-    user.present? && (record.user == user)
+    user.present? && (record.user == user || user.admin? || user.moderator?)
   end
 
   def scope
-    Pundit.policy_scope!(user, record.class)
+    record.class 
   end
 
   class Scope
