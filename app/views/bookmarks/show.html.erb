@@ -1,0 +1,9 @@
+ <h1><%= @topic.name %></h1>
+ 
+
+   <%= link_to "Edit Bookmark", edit_topic_bookmark_path, class: 'btn btn-success' %>
+ 
+ <p><%= @bookmark.name %> | <%= @bookmark.url %></p>
+
+
+   <%= link_to "Back to topics", topics_path, class: 'btn btn-success' %>
