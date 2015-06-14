@@ -1,10 +1,17 @@
- <h1><%= @topic.name %></h1>
+     <div class="row">
+    <div class="large-12 columns">
+
+    	<h1><%= @topic.name %></h1>
  
    <% if policy(@bookmark).update? %>
    <%= link_to "Edit Bookmark", edit_topic_bookmark_path, class: 'btn btn-success' %>
    <% end %>
  
- <p><%= @bookmark.name %> | <%= @bookmark.url %></p>
+<p><%= @bookmark.name %> | <%= @bookmark.url %> | <%= link_to "Delete", topic_bookmark_path, method: :delete, remote: true %>
+</p>
 
 
    <%= link_to "Back to topics", topics_path, class: 'btn btn-success' %>
+
+</div>
+</div>

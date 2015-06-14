@@ -44,10 +44,21 @@ class BookmarksController < ApplicationController
      end
 
   def destroy
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
-    @bookmark.destroy
-    redirect_to :edit
+
+     if @bookmark.destroy
+       flash[:notice] = "Bookmark was removed."
+
+     else
+       flash[:error] = "Bookmark couldn't be deleted. Try again."
+     end
+
+     respond_to do |format|
+       format.html
+       format.js
+     end
   end
 end
 

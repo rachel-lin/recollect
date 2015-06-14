@@ -1,4 +1,7 @@
- <h1><%= @topic.name %></h1>
+ <div class="row">
+   <div class="col-md-8">
+
+    <h1><%= @topic.name %></h1>
  
 
     <% if policy(@topic).update? %>
@@ -9,8 +12,7 @@
    <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'button secondary' %>
    <% end %>
  
- <div class="row">
-   <div class="col-md-8">
+
      <p class="lead"><%= @topic.description %></p>
      <% @bookmarks.each do |bookmark| %>
        <div class="media">

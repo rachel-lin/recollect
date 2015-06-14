@@ -1,47 +1,65 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<!-- The row to wrap them all -->
+<div class="row">
+
+  <!-- Keeping it neat with 8 columns -->
+  <div class="large-8 columns">
+
+  <!-- Form starts here -->
+  <form>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
 
-      <div class="row">
-    <div class="large-6 columns">
 
-      <form>
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-      <div class="row">
+
+    <!-- Enter email -->
+    <div class="row">
     <div class="large-12 columns">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
-  </div>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
 
+    <!-- Enter password -->
     <div class="row">
     <div class="large-6 columns">
     <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
     <%= f.password_field :password, autocomplete: "off" %>
     </div>
 
+    <!-- Enter password again for confirmation -->
     <div class="row">
     <div class="large-6 columns">
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="field">
+    <!-- Enter current password to update anything -->
+    <div class="row">
+    <div class="large-12 columns">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
+    </div>
 
-  <div class="actions">
+    <div class="row">
+    <div class="large-12 columns">
     <%= f.submit "Update", class: "button success" %>
-  </div>
+
 <% end %>
 
 <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %></p>
 
 <%= link_to "< Back", :back %>
-</form>
+  
+  </form>
+  <!-- Form ends here -->
+  
+  <!-- Keeping it neat with 8 columns -->
+  </div>
+<!-- The row to wrap them all -->  
 </div>
