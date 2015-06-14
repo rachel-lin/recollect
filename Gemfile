@@ -30,6 +30,8 @@ gem 'figaro', '1.0'
 gem 'pundit'
 # Include Faker
 gem 'faker'
+# Include foundation icons
+gem 'foundation-icons-sass-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

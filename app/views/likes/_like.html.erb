@@ -1,0 +1,12 @@
+
+<% if policy(Like.new).create? %>
+
+<% if like = current_user.liked(bookmark) %>
+	<%= link_to [bookmark, like], class: 'button alert', method: :delete do %>Unlike<% end %>
+
+<% else %>
+	<%= link_to [bookmark, Like.new], class: 'button success', method: :post do %>Like<% end %>
+<% end %>
+
+<% end %>
+

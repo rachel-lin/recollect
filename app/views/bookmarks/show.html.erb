@@ -3,12 +3,14 @@
 
     	<h1><%= @topic.name %></h1>
  
-   <% if policy(@bookmark).update? %>
-   <%= link_to "Edit Bookmark", edit_topic_bookmark_path, class: 'btn btn-success' %>
-   <% end %>
+
  
-<p><%= @bookmark.name %> | <%= @bookmark.url %> | <%= link_to "Delete", topic_bookmark_path, method: :delete, remote: true %>
+<p><%= @bookmark.name %> | <%= @bookmark.url %> |   <% if policy(@bookmark).update? %>
+   <%= link_to "Edit", edit_topic_bookmark_path, class: 'btn btn-success' %>
+   <% end %> | <%= link_to "Delete", topic_bookmark_path, method: :delete, remote: true %>
 </p>
+
+<%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>
 
 
    <%= link_to "Back to topics", topics_path, class: 'btn btn-success' %>
