@@ -28,7 +28,7 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
-    @bookmark = Bookmark.find(params[:id])
+    @bookmarks = @topic.bookmarks
     authorize @topic
   end
 
