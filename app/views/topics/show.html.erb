@@ -17,9 +17,15 @@
      <% @bookmarks.each do |bookmark| %>
        <div class="media">
          <div class="media-body">
-           <h4 class="media-heading">
-             <%= link_to bookmark.name, [@topic, bookmark] %>
+           <h4>
+             <%= link_to bookmark.name, (bookmark.url) %> | <%= bookmark.url %>      
            </h4>
+           <h5>
+            
+              <%= link_to "Edit", edit_topic_bookmark_path(topic_id: @topic, bookmark_id: @bookmark) %> &middot;
+              <%= link_to "Delete", topic_bookmark_path(topic_id: @topic), method: :delete, remote: true %>
+            
+           </h5>
          </div>
        </div>
      <% end %>
