@@ -1,29 +1,65 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+<!-- The row to wrap them all -->
+<div class="row">
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <!-- Keeping it neat with 8 columns -->
+  <div class="large-8 columns">
+
+  <!-- Form starts here -->
+  <form>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+
+    <h2>Sign up</h2>
+
+    <!-- Enter email -->
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+    </div>
+
+    <!-- Enter password -->
+      <div class="row">
+        <div class="large-6 columns">
+          <%= f.label :password %> 
+          <% if @validatable %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+    <!-- Enter password again for confirmation -->
+
+      <div class="large-6 columns">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+      </div>
+
+      <div class="row">
+        <div class="large-12 columns">
+
+        <%= f.submit "Sign up", class: "button success" %>
+
+    <% end %>
+      </div>
+      </div>
+      
+    <div class="row">
+      <div class="large-12 columns">
+       <%= render "devise/shared/links" %>
+      </div>
+    </div>
+
+
+  </form>
+
+  <!-- Form ends here -->
+  
+  <!-- Keeping it neat with 8 columns -->
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<!-- The row to wrap them all -->  
+</div>

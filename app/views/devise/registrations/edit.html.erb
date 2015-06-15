@@ -16,9 +16,10 @@
 
     <!-- Enter email -->
     <div class="row">
-    <div class="large-12 columns">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="large-12 columns">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
     </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -27,36 +28,41 @@
 
     <!-- Enter password -->
     <div class="row">
-    <div class="large-6 columns">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    </div>
+      <div class="large-6 columns">
+        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
 
-    <!-- Enter password again for confirmation -->
-    <div class="row">
-    <div class="large-6 columns">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <!-- Enter password again for confirmation -->
+
+      <div class="large-6 columns">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
     </div>
 
     <!-- Enter current password to update anything -->
     <div class="row">
-    <div class="large-12 columns">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
+      <div class="large-12 columns">
+        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "off" %>
+      </div>
     </div>
 
     <div class="row">
     <div class="large-12 columns">
     <%= f.submit "Update", class: "button success" %>
+    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %> 
+    <%= button_to "Back", :back, class: "button secondary" %>
 
-<% end %>
+  <% end %>
 
-<%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %></p>
 
-<%= link_to "< Back", :back %>
+
   
   </form>
+    </div>
+    </div>
   <!-- Form ends here -->
   
   <!-- Keeping it neat with 8 columns -->
