@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
    role == 'moderator'
  end
 
- def liked(post)
+ def liked(bookmark)
  	likes.where(bookmark_id: bookmark.id).first
  end
  
