@@ -8,10 +8,10 @@ class LikesController < ApplicationController
 		authorize like
 		if like.save
           flash[:notice] = "Well, someone likes this bookmark!"
-          redirect_to [@topic, @bookmark]
+          redirect_to @topic
 		else
           flash[:error] = "Try again!"
-          redirect_to [@topic, @bookmark]
+          redirect_to @topic
 		end
 
 	end
@@ -25,10 +25,10 @@ class LikesController < ApplicationController
 		authorize like
 		if like.destroy
 			flash[:notice] = "Looks like someone doesn't like this bookmark anymore!"
-			redirect_to [@topic, @bookmark]
+			redirect_to @topic
 		else
 			flash[:error] = "Let's try getting rid of that again"
-			redirect_to [@topic, @bookmark]
+			redirect_to @topic
 		end
 	end
 

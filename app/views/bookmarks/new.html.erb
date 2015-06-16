@@ -2,13 +2,30 @@
 
   <h1>New Bookmark</h1>
 
-   <%= form_for @bookmark, :url => { :action => "create" } do |f| %>
+   <%= form_for [@topic, @bookmark] do |f| %>
+
+   <% if @bookmark.errors.any? %>
+	 <div class="alert-box warning">
+	   <h4>There are <%= pluralize(@bookmark.errors.count, "error") %>.</h4>
+	   <ul>
+	     <% @bookmark.errors.full_messages.each do |msg| %>
+	       <li><%= msg %></li>
+	     <% end %>
+	   </ul>
+	 </div>
+   <% end %>
+
+
+       <%= form_group_tag(@bookmark.errors[:name]) do %>
        <%= f.label :name %>
        <%= f.text_field :name, class: 'form-control', placeholder: "Enter name of bookmark" %>
+       <% end %>
 
 
+       <%= form_group_tag(@bookmark.errors[:url]) do %>
        <%= f.label :url %>
        <%= f.text_field :url, rows: 8, class: 'form-control', placeholder: "Enter URL" %>
+       <% end %>
 
        <%= f.submit "Save", class: 'button success' %>
      </div>
