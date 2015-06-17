@@ -19,7 +19,7 @@
 
     <div class="large-12 columns">
            <%= link_to "All Collections", :root %> /
-           <%= link_to "Personal List", :root %><br />
+           <%= link_to "Personal List", current_user %><br />
 
            <% if current_user %>
              Hello <%= link_to (current_user.email), edit_user_registration_path %>! <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

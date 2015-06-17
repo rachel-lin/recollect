@@ -5,12 +5,16 @@ class TopicsController < ApplicationController
   end
 
   def new
+    @user = User.find(params[:user_id])
     @topic = Topic.new
     authorize @topic
   end
 
      def create
-       @topic = Topic.new(params.require(:topic).permit(:name, :description, :public))
+       @user = User.find(params[:user_id])
+       @topics = @user.topics
+        @topic = Topic.new(params.require(:topic).permit(:name, :description, :public))
+        @topic.user = @user
        authorize @topic
        if @topic.save
          redirect_to @topic, notice: "Topic was saved successfully."

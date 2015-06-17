@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
-  def show
+    def show
+      @user = User.find(params[:id])
+      @bookmarks = @user.bookmarks
+      @topic = Topic.find(params[:id])
+      @liked_bookmarks = @user.likes
+    end
 
-  	@user = User.find(params[:user_id])
-    @user_bookmarks = @user.bookmarks
-    @liked_bookmarks = 	@user.likes
-  end
+
 end

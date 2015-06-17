@@ -9,7 +9,7 @@ class Bookmark < ActiveRecord::Base
     validates :name, presence: true
     validates :url, presence: true
     validates :topic, presence: true
-    validates :user, presence: true
+    validates :user, presence: false
 	
 
 end

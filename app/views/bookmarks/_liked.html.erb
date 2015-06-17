@@ -1,0 +1,5 @@
+<% @liked_bookmarks.each do |bookmark| %>
+           <h4>
+             <%= link_to bookmark.name, (bookmark.url) %> | <%= bookmark.url %>      
+           </h4>
+<% end %>

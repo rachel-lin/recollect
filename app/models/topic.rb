@@ -5,5 +5,5 @@ class Topic < ActiveRecord::Base
 
     validates :name, presence: true
     validates :description, presence: true
-    validates :user, presence: true
+    validates :user, presence: false
 end
