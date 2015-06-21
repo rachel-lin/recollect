@@ -8,7 +8,8 @@
         <div class="media-body">
           <p class="collection">
           <h3>
-            <%= link_to topic.name, topic %>
+             <%= image_tag(topic.thumbnail.large.url) if topic.thumbnail? %>
+             <%= link_to topic.name, topic %>
           <small>Collated by <%= link_to (topic.user), edit_user_registration_path %></small></h3>
 
           <h5>

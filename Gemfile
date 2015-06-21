@@ -32,6 +32,10 @@ gem 'pundit'
 gem 'faker'
 # Include foundation icons
 gem 'foundation-icons-sass-rails'
+# Gems for uploading images
+gem 'carrierwave'
+gem 'mini_magick'
+gem 'fog'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
