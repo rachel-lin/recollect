@@ -1,21 +1,21 @@
-<% @bookmarks.each do |bookmark| %>
-       <div class="media">
+
+       <div class="media" id ="bookmark-<%= bookmark.id %>">
          <div class="media-body">
            <h4>
              <%= link_to bookmark.name, (bookmark.url) %> | <%= bookmark.url %>      
            </h4>
            <h5>
             
-              <%= link_to "Edit", edit_topic_bookmark_path(topic_id: @topic, bookmark_id: @bookmark) %> &middot;
-              <%= link_to "Delete", topic_bookmark_path(topic_id: @topic), method: :delete, remote: true %> &middot;
+              <%= link_to "Edit", edit_topic_bookmark_path(bookmark.topic, bookmark) %> &middot;
+              <%= link_to "Delete", topic_bookmark_path(bookmark.topic , bookmark), method: :delete, remote: true %> &middot;
 
               <% if policy(Like.new).create? %>
 
-              <% if like = current_user.liked(bookmark) %>
-                <%= link_to [@topic, bookmark, like], method: :delete do %>Unlike<% end %>
+              <% if like = current_user.liked?(bookmark) %>
+                <%= link_to [bookmark.topic, bookmark, like], method: :delete do %>Unlike<% end %>
 
               <% else %>
-                <%= link_to [@topic, bookmark, Like.new], method: :post do %>Like<% end %>
+                <%= link_to [bookmark.topic, bookmark, Like.new], method: :post do %>Like<% end %>
               <% end %>
 
               <% end %>
@@ -24,4 +24,3 @@
            </h5>
          </div>
        </div>
-     <% end %>
