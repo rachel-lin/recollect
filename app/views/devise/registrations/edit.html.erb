@@ -2,19 +2,43 @@
 <!-- The row to wrap them all -->
 <div class="row">
 
+<!-- Form starts here -->
+<form>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
+<%= devise_error_messages! %>
+
+
+  <!-- Left column -->
+  <div class="large-4 columns">
+
+         <% if current_user.avatar? %>
+           <p>Current avatar</p>
+           <%= image_tag( current_user.avatar.small.url ) %>
+        <% end %>
+       
+         <%= f.label :avatar %>
+         <%= f.file_field :avatar %>
+  </div>
+  <!-- End of left column -->
+
   <!-- Keeping it neat with 8 columns -->
   <div class="large-8 columns">
 
-  <!-- Form starts here -->
-  <form>
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+
 
 
   <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 
-    <!-- Enter email -->
+       <!-- Enter name -->
+    <div class="row">
+      <div class="large-12 columns">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    </div>
+
+     <!-- Enter email -->
     <div class="row">
       <div class="large-12 columns">
         <%= f.label :email %><br />
@@ -52,10 +76,11 @@
     <div class="row">
     <div class="large-12 columns">
     <%= f.submit "Update", class: "button success" %>
+      <% end %>
+
     <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %> 
     <%= button_to "Back", :back, class: "button secondary" %>
 
-  <% end %>
 
 
 

@@ -24,10 +24,6 @@
          <%= f.text_field :name, class: 'form-control', placeholder: "Enter topic name" %>
          <% end %>
 
-         <%= form_group_tag(@topic.errors[:description]) do %>
-         <%= f.label :description %>
-         <%= f.text_area :description, rows: 8, class: 'form-control', placeholder: "Enter topic description" %>
-         <% end %>
 
          <% if @topic.thumbnail? %>
          <p>Topic Thumbnail</p>
