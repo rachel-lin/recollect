@@ -2,7 +2,10 @@
 
 <div class="row">
   <div class="large-8 columns">
-    <h2>Collections</h2>
+    <% if policy(Topic.new).create? %>
+      <%= link_to "+", new_topic_path, class: 'button secondary' %>
+  <% end %>
+  <h2>Collections</h2>  
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-body">
@@ -15,9 +18,10 @@
       </div>
     <% end %>
   </div>
-  <div class="large-4 columns">
+ <!-- <div class="large-4 columns">
   <% if policy(Topic.new).create? %>
       <%= link_to "New Topic", new_topic_path, class: 'button secondary' %>
   <% end %>
   </div>
+-->
 </div>

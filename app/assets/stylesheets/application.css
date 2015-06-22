@@ -17,13 +17,35 @@
  */
 
  @import 'foundation-icons';
+ @import url(http://fonts.googleapis.com/css?family=Abel);
 
-#header {
+* {
+
+ 	font-family: 'Abel', sans-serif !important;
+}
+
+.nav {
 
 margin-top: 2%;
-margin-bottom: 2%;
+
 }
 
-.collection {
-	background-color: #eee;
+.content {
+
+margin-top: 2%;
+
 }
+
+.nav a {
+	color: black;
+	font-family: 'Abel', sans-serif;
+	line-height: 80%;
+}
+
+
+.alert-box.success {
+	margin-top: 5%;
+	background-color: transparent!important;
+	color: #3a945b;
+}
+
