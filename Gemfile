@@ -30,8 +30,7 @@ gem 'figaro', '1.0'
 gem 'pundit'
 # Include Faker
 gem 'faker'
-# Include foundation icons
-gem 'foundation-icons-sass-rails'
+
 # Gems for uploading images
 gem 'carrierwave'
 gem 'mini_magick'
