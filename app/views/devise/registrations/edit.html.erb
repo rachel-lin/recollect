@@ -2,14 +2,25 @@
 <!-- The row to wrap them all -->
 <div class="row">
 
-<!-- Form starts here -->
-<form>
-    <%= form_for(current_user) do |f| %>
-<%= devise_error_messages! %>
 
 
   <!-- Left column -->
   <div class="large-4 columns">
+
+  
+  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  
+  <%= form_for(current_user) do |f| %>
+
+    <!-- Enter name -->
+    <div class="row">
+
+      <div class="large-12 columns">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+    </div>
+
 
          <% if current_user.avatar? %>
            <p>Current avatar</p>
@@ -18,25 +29,24 @@
        
          <%= f.label :avatar %>
          <%= f.file_field :avatar %>
+
+        <%= f.submit "Update", class: 'button success' %>
+    <% end %>
+
   </div>
   <!-- End of left column -->
 
   <!-- Keeping it neat with 8 columns -->
   <div class="large-8 columns">
 
+  <!-- Form starts here -->
+  <form>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :patch }) do |f| %>
+  <%= devise_error_messages! %>
 
 
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-
-       <!-- Enter name -->
-    <div class="row">
-      <div class="large-12 columns">
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %>
-      </div>
-    </div>
 
      <!-- Enter email -->
     <div class="row">
