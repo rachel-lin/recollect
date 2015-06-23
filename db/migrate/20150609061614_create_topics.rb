@@ -3,7 +3,7 @@ class CreateTopics < ActiveRecord::Migration
     create_table :topics do |t|
       t.string :name
       t.boolean :public, default:true 
-      t.text :description
+
 
       t.timestamps null: false
     end

@@ -7,7 +7,7 @@ require 'faker'
     name:  Faker::Name.name,
     email: Faker::Internet.email,
     password: 'helloworld',
-    avatar: Faker::Avatar.image 
+    avatar: 'Faker::Avatar.image' 
 
     )
   user.skip_confirmation!
@@ -22,7 +22,7 @@ users = User.all
   Topic.create!(
     user: users.sample,
     name: Faker::Commerce.department,
-    description: Faker::Company.catch_phrase
+    thumbnail: 'Faker::Avatar.image' 
     )
 end
 
