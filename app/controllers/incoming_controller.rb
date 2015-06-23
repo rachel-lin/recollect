@@ -6,8 +6,9 @@ class IncomingController < ApplicationController
   def create
 
     @user = User.find_by(email: params[:sender])
-    @topic = Topic.find_by(title: params[:subject])
+    @topic = Topic.find_by(name: params[:subject])
 
+    @name = params["body-plain"]
     @url = params["body-plain"]
 
   if @user.nil?
@@ -17,10 +18,10 @@ class IncomingController < ApplicationController
   end
 
   if @topic.nil?
-    @topic = @user.topics.create(title: params[:subject])
+    @topic = @user.topics.create(name: params[:subject])
   end
 
-  @bookmark = @topic.bookmarks.create(url: @url)
+  @bookmark = @topic.bookmarks.create(name: @url, url: @url)
 
     head 200
   end
