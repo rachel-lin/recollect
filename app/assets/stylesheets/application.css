@@ -1,51 +1,107 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
- *= require_tree .
- *= require_self
- *= require foundation_and_overrides
-
- */
 
 
+ @import 'animate';
  @import url(http://fonts.googleapis.com/css?family=Abel);
 
 * {
 
- 	font-family: 'Abel', sans-serif !important;
+font-family: 'Abel', sans-serif !important;
+font-size: 1em;
+color:black;
+}
+
+h2 {
+
+font-size: 2em;
+}
+
+.image {
+
+border: 1px solid #eee;
+padding: 1%;
+}
+
+.left {
+
+float: left;
+
+}
+
+.right {
+
+float: right;
+
+}
+
+/* Navigation */
+
+.container {
+
+margin: auto;
+padding: 2%;
+
 }
 
 .nav {
 
-margin-top: 2%;
+font-size: 1.7em;
+display:inline-block;
+width: 15%;
+float:left;
 
+}
+
+.nav a, .nav a:visited {
+
+text-decoration:none;
+cursor:crosshair;
+
+}
+
+.nav a:hover, a:active {
+color: red;
 }
 
 .content {
 
-margin-top: 2%;
+font-size: 1.5em;
+display: inline-block;
+width: 82.5%;
+margin-left: 2.5%;
+float:right;
 
 }
 
-.nav a {
-	color: black;
-	font-family: 'Abel', sans-serif;
-	line-height: 80%;
+.content a, .content a:active, .content a:visited {
+
+text-decoration: none;
+}
+
+.topic-name {
+
+border-bottom: 5px solid black;
+
 }
 
 
+.content a:hover {
+color: red;
+cursor:crosshair;
+
+}
+
+.button {
+
+border: 1px solid black;
+background-color:transparent;
+padding: 1% 1.5% 1% 1.5%;
+text-decoration:none;
+cursor: crosshair;
+
+}
 .alert-box.success {
-	margin-top: 5%;
-	background-color: transparent!important;
-	color: #3a945b;
+margin-top: 5%;
+background-color: transparent!important;
+color: #3a945b;
 }
 

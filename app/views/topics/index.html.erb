@@ -1,28 +1,27 @@
 
 
 <div class="row">
-  <div class="large-8 columns">
-    <% if policy(Topic.new).create? %>
-      <%= link_to "+", new_topic_path, class: 'button secondary' %>
+  <div class="large-12 columns">
+    <br /><% if policy(Topic.new).create? %>
+      <%= link_to "+", new_topic_path, class: 'button' %>
   <% end %>
-  <h2>Collections</h2>  
+  <br /><br />
+
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-body">
           <p class="collection">
           <h3>
-             <%= link_to topic.name, topic %>
-          <small>Collated by <%= link_to (topic.user.name), topic.user %></small></h3>
+             <%= link_to topic.name, topic, class: 'topic-name' %>
+          <small>collated by <%= link_to (topic.user.name), topic.user %></small></h3>
         </p>
         </div>
       </div>
     <% end %>
+    <br />
     <%= will_paginate @topics %>
+
+
   </div>
- <!-- <div class="large-4 columns">
-  <% if policy(Topic.new).create? %>
-      <%= link_to "New Topic", new_topic_path, class: 'button secondary' %>
-  <% end %>
-  </div>
--->
+
 </div>
