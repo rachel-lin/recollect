@@ -5,14 +5,18 @@
 
   <%= form_for [@topic, @bookmark] do |f| %>
 
+     <div class="form-box">
      <%= f.label :name %>
-     <%= f.text_field :name, class: 'form-control', placeholder: "Enter name of bookmark" %>
-
+     <%= f.text_field :name, class: 'form-control', placeholder: "Bookmark Title" %>
+     </div>
+     <div class="form-box">
      <%= f.label :url %>
      <%= f.text_field :url, rows: 8, class: 'form-control', placeholder: "Enter URL" %>
+ 	 </div>
 
-
+     <div class="form-box">
      <%= f.submit "Save", class: 'button success' %>
+ 	 </div>
 
   <% end %>
 

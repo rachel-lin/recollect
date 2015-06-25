@@ -1,19 +1,18 @@
 
 
-<div class="row">
-  <div class="large-12 columns">
-    <br /><% if policy(Topic.new).create? %>
-      <%= link_to "+", new_topic_path, class: 'button' %>
+    <% if policy(Topic.new).create? %>
+      <br /><%= link_to "+", new_topic_path, class: 'button' %>
+        <br /><br />
   <% end %>
-  <br /><br />
+
 
     <% @topics.each do |topic| %>
       <div class="media">
         <div class="media-body">
           <p class="collection">
-          <h3>
+          
              <%= link_to topic.name, topic, class: 'topic-name' %>
-          <small>collated by <%= link_to (topic.user.name), topic.user %></small></h3>
+          <small>collated by <%= link_to (topic.user.name), topic.user %></small>
         </p>
         </div>
       </div>
@@ -22,6 +21,3 @@
     <%= will_paginate @topics %>
 
 
-  </div>
-
-</div>

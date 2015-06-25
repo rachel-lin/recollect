@@ -1,12 +1,11 @@
 
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
-  
+<div class="left-container">
+
   <%= form_for(current_user) do |f| %>
 
     <!-- Enter name -->
 
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <div class="form-box"><%= f.label :name %> <%= f.text_field :name, autofocus: true %></div>
 
 
          <% if current_user.avatar? %>
@@ -14,14 +13,16 @@
            <%= image_tag( current_user.avatar.small.url ) %>
         <% end %>
        
-         <%= f.label :avatar %><br /><br />
-         <%= f.file_field :avatar %>
-
-        <br /><br />
-        <%= f.submit "Update", class: 'button' %>
+         <div class="form-box">
+        <%= f.label :avatar %></div>
+        <div class="form-box no-border small"><%= f.file_field :avatar %></div>
+<br />
+        <div class="form-box"><%= f.submit "Update", class: 'button' %></div>
     <% end %><br />
 
+</div>
 
+<div class="right-container">
 
   <!-- Form starts here -->
   <form>
@@ -30,8 +31,10 @@
 
   <!-- Enter email -->
 
+        <div class="form-box">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true %>
+        </div>
 
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -40,33 +43,49 @@
 
     <!-- Enter password -->
 
-        <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-        <%= f.password_field :password, autocomplete: "off" %>
+        <div class="form-box">
+        <%= f.label :password %> <%= f.password_field :password, autocomplete: "off" %> <div class="small"><i>(leave blank if you don't want to change it)</i></div>
+        
+        </div>
 
 
       <!-- Enter password again for confirmation -->
 
-        <%= f.label :password_confirmation %><br />
+        <div class="form-box">
+        <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
 
     <!-- Enter current password to update anything -->
 
-        <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-        <%= f.password_field :current_password, autocomplete: "off" %>
+        <div class="form-box">
+          <%= f.label :current_password %> <%= f.password_field :current_password, autocomplete: "off" %>
+          <div class="small"><i>(we need your current password to confirm your changes)</i></div>
+        </div>
+        
 
 
-
-    <%= f.submit "Update", class: "button success" %>
+    <div class="form-box">
+      <%= f.submit "Update", class: "button success" %>
       <% end %>
+    </div>
+    
+    <div class="form-box">
+      <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %>
+    </div>
 
-    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "button alert" %> 
-    <%= button_to "Back", :back, class: "button secondary" %>
+    <div class="form-box">
+      <%= button_to "Back", :back, class: "button secondary" %>
+    </div>
+
+   </div>
 
 
 
 
   
   </form>
+</div>
 
   <!-- Form ends here -->
   <!-- End of right column -->

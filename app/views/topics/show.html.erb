@@ -1,13 +1,8 @@
- <div class="row">
-  <div class="large-4 columns">
-        <%= image_tag(@topic.thumbnail.large.url) if @topic.thumbnail? %>
-  </div>
 
-   <div class="large-8 columns">
+<div class="left-container">
+   Collection: <%= @topic.name %>
 
-    <h1><%= @topic.name %></h1>
- 
-
+  <div class="form-box">
     <% if policy(@topic).update? %>
     <%= link_to "Edit Topic", edit_topic_path, class: 'button secondary' %> 
     <% end %>
@@ -15,12 +10,18 @@
    <% if policy(Bookmark.new).create? %>
    <%= link_to "New Bookmark", new_topic_bookmark_path(@topic), class: 'button secondary' %>
    <% end %>
- 
+ </div><br />
 
+  <div class="form-box">
+    <%= image_tag(@topic.thumbnail.large.url) if @topic.thumbnail? %>
+  </div>
+</div>
+
+ 
+<div class="right-container">
 <%= render @bookmarks %>
 <%= will_paginate @bookmarks %>
+</div>
 
-     
-   </div>
 
- </div>
+

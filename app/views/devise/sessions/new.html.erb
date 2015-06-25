@@ -5,26 +5,24 @@
   <!-- Keeping it neat with 8 columns -->
   <div class="large-8 columns">
 
-    <h2>Log in</h2>
+    Log in
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="row">
-      <div class="large-12 columns">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+      <div class="form-box">
+    <%= f.label :email %> <%= f.email_field :email, autofocus: true %>
       </div>
     </div>
 
     <div class="row">
-      <div class="large-12 columns">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+      <div class="form-box">
+    <%= f.label :password %> <%= f.password_field :password, autocomplete: "off" %>
       </div>
     </div>
 
   <% if devise_mapping.rememberable? -%>
     <div class="row">
-      <div class="large-12 columns">
+      <div class="form-box">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
       </div>
@@ -32,14 +30,14 @@
   <% end -%>
 
     <div class="row">
-      <div class="large-12 columns">
+      <div class="form-box">
     <%= f.submit "Log in", class: "button success" %>
       </div>
     </div>
 <% end %>
 
     <div class="row">
-      <div class="large-12 columns">
+      <div class="form-box">
         <%= render "devise/shared/links" %>
       </div>
     </div>

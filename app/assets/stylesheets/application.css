@@ -105,3 +105,52 @@ background-color: transparent!important;
 color: #3a945b;
 }
 
+/* Forms */
+
+.form-box {
+
+display:block;
+margin-top:2%;
+
+}
+
+.small {
+
+font-size: 0.6em;
+
+}
+
+input, button, input[type="file"] {
+
+border: 1px solid black;
+}
+
+input[placeholder] {
+
+padding-left: 1%;
+
+}
+
+
+
+.no-border input{
+border: none;
+}
+
+/* Topics */
+
+.left-container {
+
+width: 30%;
+float:left;
+
+}
+
+.right-container {
+
+width: 67%;
+margin-left: 1%;
+float:right;
+
+
+}
