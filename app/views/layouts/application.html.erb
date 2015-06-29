@@ -6,9 +6,9 @@
 
     <title><%= content_for?(:title) ? yield(:title) : "RECOLLECT" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag    "application", "style2" %>
+
+    <%= javascript_include_tag "application", "modernizr.custom" %>
     <%= csrf_meta_tags %>
   </head>
 
@@ -18,6 +18,7 @@
 
   <div class="nav animated fadeIn"> 
 
+           <div id="trigger-overlay">About</div>
            <%= link_to "All Collections", :root %> <br />
            <%= link_to "All Users", users_path %> <br />
            <%= link_to "Personal List", current_user %><br />
@@ -31,6 +32,21 @@
         
            <% end %>
 
+
+      <!-- open/close -->
+    <div class="overlay overlay-corner">
+
+      <nav>
+ 
+    <h2>Recollect</h2>
+    <p>The art of collecting is an age-old tradition born out of sentimentality and a digital native's waning ability to remember the many things we encounter on the world wide web. Collect and share meaningful links using Recollect.  </p>
+
+          <p>Created by <a href="http://rachel-lin.com">Rachel Lin</a><p>
+
+          <p class="overlay-close">— Close</p>
+
+      </nav>
+    </div>
 
   <div class="alerts">
 
@@ -61,6 +77,10 @@
 </div>
 
 
+    <%= javascript_include_tag "classie", "demo1" %>
+
+
 
   </body>
+
 </html>
